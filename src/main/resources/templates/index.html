@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Type Maintenance</title>
+</head>
+<body>
+<form action="/submit" method="get">
+
+<div align="center">
+    <h1>Code Types List</h1>
+    <label for="dropdown">Select a code key:</label>
+    <select name="selectedItem" id="dropdown">
+        <option value="CHANNEL">CHANNEL</option>
+        <option value="BRAND">BRAND</option>
+        <option value="COUPON TYPE">COUPON TYPE</option>
+    </select>
+    <button type="submit">Submit</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code Key</th>
+                <th>Code Type</th>
+                <th>Sequence</th>
+                <th>Status</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="codeTypes : ${listByCodeKey}">
+            <td th:text="${codeTypes.codeKey}"></td>
+            <td th:text="${codeTypes.codeType}"></td>
+            <td th:text="${codeTypes.sequence}"></td>
+            <td th:text="${codeTypes.status}"></td>
+            <td th:text="${codeTypes.codeDescription}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</form>
+</body>
+</html>
